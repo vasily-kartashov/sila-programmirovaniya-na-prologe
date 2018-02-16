@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-pandoc -o sila-programmirovaniya-na-prologe.epub title.yml \
+pandoc -o ../sila-programmirovaniya-na-prologe.epub title.yml \
        -c book.css --from markdown+subscript+superscript+markdown_in_html_blocks+raw_html+yaml_metadata_block \
        --epub-embed-font=assets/fonts/iosevka-regular.ttf \
        --no-highlight \
-       $( ls ../*.md )
+       $( ls ../chapters/*.md )

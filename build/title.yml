@@ -5,6 +5,8 @@
   creator:
   - role: author
     text: Маркус Триска
+  - role: translator
+    text: Василий Карташов
   language: ru-RU
 ...
 
