@@ -53,29 +53,29 @@ When beginners write their first Prolog programs, a common mistake is to ask the
 
 ## Выбор имени для предикатов
 
-A good predicate name makes clear what the predicate arguments mean. Ideally, a predicate can be used in all directions. This means that any argument may be a variable, partially instantiated, or fully instantiated. This generality should be expressed in the predicate name, typically by choosing nouns to describe the arguments.
+Хорошее имя предиката подсказывает роль каждого аргумента. В идеале предикат может быть использован во всех направлениях. Это означает, что любой аргумент может быть переменной --- частично или полностью связанной. Эта гибкость должна быть выражена в имени предиката, обычно путем выбора существительных для описания аргументов.
 
 Примеры удачных имён:
 
-- list_length/2, связывает список с его длиной
-- integer_successor/2, свазывает целое число с числом следующим за ним
-- student_course_grade/3, связывает студентов с классами, которые они посещают, и их оценками.
+- `списко_длина/2`, связывает список с его длиной
+- `целое_слудующее/2`, свазывает целое число с числом следующим за ним
+- `студент_курс_оценка/3`, связывает студентов с курсами, которые они посещают, и полученными там оценками.
 
-In these cases, the predicate names are so clear that the descriptions seem almost superfluous. Заметим также что длинные_имена_использующие_знак_подчёркивания_читаются_легко, а вот именаНаписанныеСлитноВРазныхРегистрахЧитаютсяЗначительноТруднее.
+В этих случаях имена предикатов настолько ясны, что дополнительные описания кажутся излишними. Заметим также что длинные_имена_использующие_знак_подчёркивания_читаются_легко, а вот именаНаписанныеСлитноВРазныхРегистрахЧитаютсяЗначительноТруднее.
 
 По этим причинам можно назвать следующие примеры менее удачными:
 
-- length/2: Каким по порядку аргументом идёт длина, первым или вторым?
-- nextInteger/2: Not as readable as for example next_integer/2, and not as meaningful as integer_successor/2.
-- fetch_grades/3: Does not make sense for example if grades are already instantiated.
+- `длина/2`: Каким по порядку аргументом идёт длина, первым или вторым?
+- `следущееЦелое/2`: Не так легко прочесть, как `следущее_целое/2`, и не так легко понять как `целое_следущее/2`.
+- `прочесть_оценки/3`: Бессмыслица в случае, если оценки уже связанные переменные.
 
 ## Именование переменных
 
-Имена переменных в Прологе дожны начинаться либо с заглавной буквы, либо со знака подчёркивания. The latter rule is useful to know if you are teaching Prolog in Japan, for example. В отличии от имён предикатов, MixedCases are sometimes used when naming Prolog variables. However, the mixing is in almost all cases limited to at most two uppercase words that are adjoined.
+Имена переменных в Прологе дожны начинаться либо с заглавной буквы, либо со знака подчёркивания. Последнее правило полезно знать, если вы, например, преподаёте Prolog в Японии. В отличии от имён предикатов, имена переменных в Прологе иногда записывают в СмешаныхРегистрах. Тем не менее, почти во всех случаях такие имена переменных состоян не более чем двух слитно написанных слов.
 
-Some Prolog predicates describe a sequence of state transitions to express state changes in a pure way. In such cases, the following convention can be very useful: The initial state is denoted as State0, the next state is State1, etc. This enumeration continues until the final state, which we call State. In total, the sequence is therefore:
+Некоторые предикаты Пролога описывают последовательность изменения состояний, чтобы выразить изменение состояния чистым способом. В таких случаях может быть очень полезно следующее соглашение: начальное состояние обозначается как `Состояние0`, следующее за ним состояние --- `Состояние1` и т. д. Это перечисление продолжается до конечного состояния, которое мы называем `Состояние`. Полностью последовательность будет выглядеть следующим образом:
 
-    State0 → State1 → State2 → ... → State
+    Состояние0 -> Состояние1 -> ... -> Состояние
 
 Of course, the prefix State can denote any other entity that is being described. For example, if multiple elements are inserted into an association list, we may have the sequence:
 
@@ -85,8 +85,8 @@ When writing higher-order predicates, it is good practice to denote with C_N a c
 
 ## Отступы
 
-Пролог очень простой язык: Only a few language constructs exist, and several ways for indenting them are common. However, no matter which convention you choose, one invariant that should always be adhered to is to never place (;)/2 at the end of a line. This is because ; looks very similar to , (comma). Since (',')/2 almost always occurs at the end of a line, it is good practice to place ; either at the beginning of a line or between the two goals of a disjunction to more clearly distinguish it from a conjunction.
+Пролог очень простой язык: есть весьма ограниченный набор языковых конструктов, и несколько общепринятых способов отступа. Однако, независимо от стандарта оформления кода, всегда следует придерживаться одного золотого правила, а именно, никогда не ставить `(;)/2` в конце строки. Иначе точку с запятой ";" будет легко спутать с запятой ",", а поскольку `,/2` сама почти всегда встречается в конце строки, хорошей практикой будет поместить ";" либо в начале строки, либо посреди между двумя целями дизъюнкции, так, чтобы её лечге было отличить от конъюнкции.
 
 ## Дополнительные материалы
 
-Covington et al., Coding Guidelines for Prolog, contains some interesting observations for programming in Prolog.
+Covington et al., Coding Guidelines for Prolog, содержит несколько интересных наблюдений касательно программирования на Прологе.
